@@ -20,20 +20,53 @@ const {
   aspectBadge, 
   category 
 } = Astro.props;
+
+// Extract YouTube ID from various YouTube URL formats
+const ytMatch = videoUrl?.match(/(?:embed\/|v=|youtu\.be\/|\/v\/)([a-zA-Z0-9_-]{11})/);
+const youtubeId = ytMatch ? ytMatch[1] : null;
+const posterUrl = youtubeId ? `https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg` : null;
 ---
 
 <article class="portfolio-card" data-category={category}>
-  <div class="video-wrapper">
-    <iframe 
-      src={videoUrl} 
-      title={title} 
-      loading="lazy"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
+  <div 
+    class="video-wrapper custom-facade" 
+    data-youtube-id={youtubeId}
+    data-video-url={videoUrl}
+    data-title={title}
+    role={posterUrl ? "button" : undefined}
+    tabindex={posterUrl ? "0" : undefined}
+    aria-label={posterUrl ? `Play video: ${title}` : undefined}
+  >
+    {posterUrl ? (
+      <div class="poster-container" title={`Click to play: ${title}`}>
+        <img 
+          src={posterUrl} 
+          alt={title} 
+          class="poster-image" 
+          loading="lazy" 
+          decoding="async" 
+        />
+        <div class="poster-overlay">
+          <div class="custom-play-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="margin-left: 2px;">
+              <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.78-6.86a1 1 0 0 0 0-1.68L9.54 4.3a1 1 0 0 0-1.54.84z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <iframe 
+        src={videoUrl} 
+        title={title} 
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    )}
     {aspectBadge && <span class="aspect-badge">{aspectBadge}</span>}
   </div>
+
   <div class="card-details">
     <div class="title-group">
       <div class="title-row">
@@ -69,7 +102,7 @@ const {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #111;
+    background: #08080a;
     overflow: hidden;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
@@ -81,6 +114,66 @@ const {
     height: 100%;
     border: 0;
   }
+
+  /* Custom Facade & Clean Play Button */
+  .custom-facade {
+    cursor: pointer;
+  }
+  .custom-facade:focus-visible {
+    outline: 2px solid var(--blue, #0a1ee2);
+    outline-offset: 3px;
+  }
+  .poster-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+  .portfolio-card:hover .poster-image {
+    transform: scale(1.03);
+    filter: brightness(1.04);
+  }
+  .poster-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 8, 10, 0.2);
+    transition: background 0.3s ease;
+  }
+  .portfolio-card:hover .poster-overlay {
+    background: rgba(8, 8, 10, 0.08);
+  }
+  .custom-play-btn {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(8, 10, 18, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    transition: transform 0.24s ease, background 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+  }
+  .portfolio-card:hover .custom-play-btn {
+    transform: scale(1.1);
+    background: var(--blue, #0a1ee2);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 32px var(--blue-glow, rgba(10, 30, 226, 0.4));
+  }
+
   .aspect-badge {
     position: absolute;
     bottom: 8px;
