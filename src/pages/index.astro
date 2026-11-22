@@ -2,1446 +2,720 @@
 import VideoEmbed from '../components/VideoEmbed.astro';
 ---
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vrihaspati Tiwari | Corporate & Event Video Editor</title>
-  <meta name="description" content="Portfolio of Vrihaspati Tiwari — Professional video editor specializing in corporate films, global conference aftermovies, product launches, executive keynotes, and multicam event post-production." />
-  
-  <link rel="canonical" href="https://vrihaspati.site/" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="alternate icon" href="/favicon.ico" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vrihaspati Tiwari | Corporate & Event Video Editor</title>
+    <meta name="description" content="Portfolio of Vrihaspati Tiwari — Video editor based in Mumbai, India specializing in commercial launch AVs, multi-cam corporate events, keynote presentations, and brand films." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+    <link rel="alternate icon" href="/favicon.ico?v=3" />
+    <link rel="apple-touch-icon" href="/favicon.svg?v=3" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vrihaspati.site/" />
-  <meta property="og:title" content="Vrihaspati Tiwari | Corporate & Event Video Editor" />
-  <meta property="og:description" content="High-impact corporate event films, brand stories, keynote summaries, aftermovies, and rapid social cutdowns." />
-  <meta property="og:image" content="https://vrihaspati.site/profile.jpg" />
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vrihaspati Tiwari | Corporate & Event Video Editor" />
+    <meta property="og:description" content="Portfolio of Vrihaspati Tiwari — Video editor based in Mumbai, India specializing in commercial launch AVs, multi-cam corporate events, and brand films." />
+    <meta property="og:image" content="/profile.jpg" />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://vrihaspati.site/" />
-  <meta property="twitter:title" content="Vrihaspati Tiwari | Corporate & Event Video Editor" />
-  <meta property="twitter:description" content="High-impact corporate event films, brand stories, keynote summaries, aftermovies, and rapid social cutdowns." />
-  <meta property="twitter:image" content="https://vrihaspati.site/profile.jpg" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vrihaspati Tiwari | Corporate & Event Video Editor" />
+    <meta name="twitter:description" content="Portfolio of Vrihaspati Tiwari — Video editor based in Mumbai, India specializing in commercial launch AVs, multi-cam corporate events, and brand films." />
+    <meta name="twitter:image" content="/profile.jpg" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --blue: #0a1ee2; /* Royal Cobalt */
+        --blue-gradient: linear-gradient(135deg, #0b22e8 0%, #051494 100%);
+        --blue-glow: rgba(10, 30, 226, 0.22);
+        --black: #08080a;
+        --dark-grey: #111215;
+        --white: #f8f9fa;
+        --font-head: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--white);
+        color: var(--black);
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* Global Layout Utilities */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .section-padding {
+        padding: 5.5rem 0;
+      }
+      
+      /* The Global Typography Pattern */
+      .section-label {
+        font-family: var(--font-body);
+        color: var(--blue);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.85rem;
+        display: block;
+      }
+      .section-title {
+        font-family: var(--font-head);
+        font-size: clamp(2.3rem, 4.5vw, 4.2rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.6px;
+        margin: 0 0 1.75rem 0;
+        max-width: 920px;
+        overflow-wrap: break-word;
+      }
+      .section-body-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 2.25rem;
+      }
+      .section-body {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: #4a4d55;
+        max-width: 650px;
+        margin: 0;
+      }
+      .btn {
+        font-family: var(--font-body);
+        display: inline-block;
+        padding: 0.95rem 2.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.8px;
+        font-size: 0.84rem;
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-blue {
+        background: var(--blue);
+        color: #fff;
+      }
+      .btn-blue:hover {
+        background: #0817b8;
+        box-shadow: 0 8px 24px var(--blue-glow);
+      }
+      .btn-white {
+        background: #fff;
+        color: var(--blue);
+      }
+      .btn-white:hover {
+        background: #eef1ff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        margin-left: 1rem;
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #ffffff;
+      }
 
-  <style>
-    :root {
-      --bg-primary: #07090e;
-      --bg-secondary: #0d111a;
-      --bg-card: #121722;
-      --bg-card-hover: #171d2b;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(59, 130, 246, 0.4);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --accent-blue: #2563eb;
-      --accent-cyan: #06b6d4;
-      --accent-indigo: #4f46e5;
-      --accent-glow: rgba(37, 99, 235, 0.25);
-      --font-display: 'Syne', sans-serif;
-      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+      /* Hero Section */
+      .hero {
+        background: var(--blue-gradient);
+        color: #fff;
+      }
+      .hero .section-title {
+        color: #fff; 
+      }
+      .hero .section-label {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .hero .section-body {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      
+      /* Top Sticky Navigation */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 2rem;
+        font-family: var(--font-head);
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.85rem;
+        background: #091cd9;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #ffffff;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: opacity 0.2s ease;
+      }
+      .nav-brand:hover {
+        opacity: 0.85;
+      }
+      .nav-brand .role {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 400;
+      }
+      .nav-availability {
+        font-family: var(--font-body);
+        font-size: 0.76rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.3px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links a {
+        color: #ffffff;
+        font-family: var(--font-body);
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.3px;
+        transition: opacity 0.2s ease;
+      }
+      .nav-links a:hover {
+        opacity: 0.8;
+      }
+      .nav-links .nav-cta {
+        background: #ffffff;
+        color: var(--blue);
+        padding: 0.55rem 1.25rem;
+        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .nav-links .nav-cta:hover {
+        background: #eef1ff;
+        opacity: 1;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      /* Client & Collaboration Strip */
+      .client-strip {
+        background: #f0f1f4;
+        border-top: 1px solid #e2e4e8;
+        border-bottom: 1px solid #e2e4e8;
+        padding: 1.1rem 0;
+        font-family: var(--font-body);
+        font-size: 0.84rem;
+      }
+      .client-strip-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .strip-label {
+        color: #777;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        font-size: 0.72rem;
+      }
+      .strip-items {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        color: #222;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+      .strip-dot {
+        color: var(--blue);
+        font-weight: 800;
+      }
 
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      font-family: var(--font-body);
-    }
-
-    body {
-      overflow-x: hidden;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Container Utilities */
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-spacing {
-      padding: 6.5rem 0;
-      position: relative;
-    }
-
-    /* Navigation Bar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(7, 9, 14, 0.85);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.1rem 0;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--text-main);
-    }
-
-    .brand-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 2px solid var(--accent-blue);
-      object-fit: cover;
-    }
-
-    .brand-title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.3px;
-    }
-
-    .brand-tag {
-      font-size: 0.72rem;
-      color: var(--accent-cyan);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      display: block;
-      margin-top: -3px;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .nav-link:hover {
-      color: #ffffff;
-    }
-
-    .availability-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34d399;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-
-    .pulse-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    .btn-nav-cta {
-      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-indigo) 100%);
-      color: #ffffff;
-      padding: 0.6rem 1.3rem;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px var(--accent-glow);
-    }
-
-    /* Hero Section */
-    .hero-section {
-      padding: 5.5rem 0 4.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-glow-1 {
-      position: absolute;
-      top: -10%;
-      left: 20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
-      pointer-events: none;
-      filter: blur(80px);
-    }
-
-    .hero-glow-2 {
-      position: absolute;
-      top: 15%;
-      right: 10%;
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-      filter: blur(80px);
-    }
-
-    .hero-content {
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      padding: 0.4rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      margin-bottom: 1.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(2.6rem, 5.8vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 1.6rem;
-      color: #ffffff;
-    }
-
-    .hero-headline .gradient-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subhead {
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      color: var(--text-muted);
-      line-height: 1.75;
-      max-width: 780px;
-      margin: 0 auto 2.5rem;
-      font-weight: 400;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-      margin-bottom: 3.5rem;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #ffffff;
-      padding: 0.95rem 2.2rem;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.94rem;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.5);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: #e2e8f0;
-      padding: 0.95rem 2.2rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.94rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    /* Metric Cards Strip */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .metric-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 1.5rem 1.25rem;
-      text-align: left;
-      transition: border-color 0.2s;
-    }
-
-    .metric-card:hover {
-      border-color: var(--border-highlight);
-    }
-
-    .metric-number {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1;
-      margin-bottom: 0.35rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .metric-number span {
-      color: var(--accent-cyan);
-    }
-
-    .metric-label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Section Headers */
-    .section-header {
-      margin-bottom: 3.25rem;
-    }
-
-    .section-badge {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--accent-cyan);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      display: inline-block;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-heading {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-      margin-bottom: 1rem;
-    }
-
-    .section-description {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      line-height: 1.7;
-    }
-
-    /* Showreel Spotlight Section */
-    .spotlight-wrapper {
-      position: relative;
-      background: linear-gradient(180deg, #101522 0%, #090c13 100%);
-      border: 1px solid var(--border-highlight);
-      border-radius: 16px;
-      padding: 1.75rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      margin-bottom: 3rem;
-    }
-
-    .spotlight-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .spotlight-tag {
-      background: rgba(37, 99, 235, 0.2);
-      border: 1px solid rgba(59, 130, 246, 0.4);
-      color: #60a5fa;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-    }
-
-    .spotlight-video {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000000;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .spotlight-video iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Filter Bar */
-    .filter-bar {
-      display: flex;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.75rem;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 0.5rem;
-      border-radius: 12px;
-      border: 1px solid var(--border-subtle);
-      width: fit-content;
-    }
-
-    .filter-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.6rem 1.15rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .filter-btn:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .filter-btn.active {
-      background: var(--accent-blue);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-    }
-
-    .filter-count {
-      font-size: 0.7rem;
-      opacity: 0.8;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.1rem 0.45rem;
-      border-radius: 9999px;
-    }
-
-    /* Portfolio Cards Grid */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    @media (max-width: 640px) {
+      /* Portfolio Section & Filter Tabs */
+      .filter-bar {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin: 2rem 0 2.5rem 0;
+      }
+      .filter-btn {
+        background: #ffffff;
+        border: 1px solid #dfdfdf;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.55rem 1.15rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #333;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .filter-btn:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+      .filter-btn.active {
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #ffffff;
+        box-shadow: 0 4px 14px var(--blue-glow);
+      }
+      .filter-count {
+        font-size: 0.72rem;
+        opacity: 0.85;
+      }
       .portfolio-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 3rem 2.5rem;
       }
-    }
 
-    /* Capabilities / Services Grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 2.25rem 2rem;
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .service-card:hover {
-      border-color: var(--border-highlight);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: rgba(37, 99, 235, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60a5fa;
-    }
-
-    .service-title {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    .service-text {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-
-    .service-list {
-      list-style: none;
-      margin-top: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .service-list li {
-      font-size: 0.84rem;
-      color: #cbd5e1;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .service-list li::before {
-      content: "✓";
-      color: var(--accent-cyan);
-      font-weight: bold;
-    }
-
-    /* Workflow Timeline */
-    .workflow-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      position: relative;
-    }
-
-    .step-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 1.8rem 1.5rem;
-      position: relative;
-    }
-
-    .step-number {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.15);
-      margin-bottom: 0.8rem;
-    }
-
-    .step-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-
-    .step-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* Tools Strip */
-    .tools-strip {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 3rem 0;
-    }
-
-    .tools-label {
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-dim);
-      margin-bottom: 1.5rem;
-    }
-
-    .tools-list {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-    }
-
-    .tool-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      padding: 0.6rem 1.25rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-    }
-
-    /* About Section */
-    .about-wrapper {
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    @media (max-width: 860px) {
-      .about-wrapper {
-        grid-template-columns: 1fr;
+      /* Services Section (Cinematic Dark Mode) */
+      .services {
+        background: var(--dark-grey);
+        color: #fff;
+        --card-title-color: #ffffff;
+        --card-tag-color: #5574ff;
+        --card-meta-color: #888;
+        --card-logline-color: #ccc;
+        --card-glow: rgba(85, 116, 255, 0.25);
       }
-    }
-
-    .about-image-card {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .about-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .about-badge-floating {
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
-      background: rgba(10, 14, 23, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.82rem;
-      color: #e2e8f0;
-      text-align: center;
-    }
-
-    .about-bio {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .about-bio p {
-      color: var(--text-muted);
-      font-size: 1.02rem;
-      line-height: 1.8;
-    }
-
-    .about-bio strong {
-      color: #ffffff;
-    }
-
-    /* Contact / Booking Section */
-    .contact-card {
-      background: linear-gradient(135deg, #101625 0%, #0a0d16 100%);
-      border: 1px solid var(--border-highlight);
-      border-radius: 20px;
-      padding: 4rem 3rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (max-width: 640px) {
-      .contact-card {
-        padding: 2.5rem 1.5rem;
+      .services .section-title {
+        color: #fff;
       }
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 3.5rem;
-    }
-
-    @media (max-width: 860px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
+      .services .section-label {
+        color: #6a88ff;
       }
-    }
+      .services .section-body {
+        color: #aaa;
+      }
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 2.5rem 0 0 0;
+      }
+      .service-list li {
+        display: flex;
+        align-items: flex-start;
+        padding: 2.2rem 0;
+        border-bottom: 1px solid #222;
+      }
+      .service-list li:first-child {
+        border-top: 1px solid #222;
+      }
+      .service-number {
+        font-family: var(--font-body);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #6a88ff;
+        width: 65px;
+        letter-spacing: 0.5px;
+      }
+      .service-content h3 {
+        font-family: var(--font-head);
+        font-size: 1.55rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        margin: 0 0 0.6rem 0;
+      }
+      .service-content p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: #888;
+        line-height: 1.65;
+        margin: 0;
+        max-width: 600px;
+      }
 
-    .contact-info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
+      /* About Section Side-by-Side Layout */
+      .about-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+        align-items: start;
+        margin-top: 1.5rem;
+      }
+      .about-text .section-body {
+        max-width: 100%;
+        margin-bottom: 1.35rem;
+      }
+      .about-text .btn {
+        margin-top: 0.6rem;
+      }
+      .photo-frame {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 4px;
+        border: 1px solid #e0e2e6;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        background: #000;
+      }
+      .about-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .photo-frame:hover .about-image {
+        transform: scale(1.02);
+      }
+      
+      /* Quote */
+      .quote {
+        background: var(--blue-gradient);
+        color: #fff;
+        text-align: center;
+        padding: 5rem 0;
+      }
+      .quote-text {
+        font-family: var(--font-body);
+        font-size: 1.45rem;
+        font-weight: 500;
+        line-height: 1.65;
+        max-width: 820px;
+        margin: 0 auto 1.4rem auto;
+      }
+      .quote-author {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        font-style: normal;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.5px;
+      }
+      .quote-role {
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.82rem;
+      }
 
-    .contact-info-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1rem;
-      color: #cbd5e1;
-    }
+      /* Footer Section */
+      .site-footer {
+        padding: 2.5rem 0;
+        border-top: 1px solid #eaeaea;
+        background-color: var(--white);
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: #555;
+      }
+      .contact-email {
+        color: var(--black);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      .contact-email:hover {
+        color: var(--blue);
+        text-decoration: underline;
+      }
 
-    .contact-info-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: rgba(37, 99, 235, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #60a5fa;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .form-input, .form-textarea, .form-select {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      padding: 0.85rem 1.1rem;
-      border-radius: 8px;
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: 0.94rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      outline: none;
-      border-color: var(--accent-blue);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    /* Footer */
-    .footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 3rem 0;
-      background: var(--bg-primary);
-      color: var(--text-dim);
-      font-size: 0.88rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-
-  </style>
-</head>
-
-<body>
-  <!-- Top Sticky Navigation -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="#" class="brand-logo">
-        <img src="/profile.jpg" alt="Vrihaspati Tiwari" class="brand-avatar" />
-        <div>
-          <span class="brand-title">Vrihaspati Tiwari</span>
-          <span class="brand-tag">Corporate & Event Video Editor</span>
-        </div>
+      @media (max-width: 768px) {
+        .section-padding { padding: 3.5rem 0; }
+        .quote { padding: 3.5rem 0; }
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+          padding: 1.2rem 1.5rem;
+        }
+        .nav-availability {
+          display: none;
+        }
+        .nav-links {
+          gap: 1rem;
+          flex-wrap: wrap;
+          font-size: 0.8rem;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.75rem;
+          display: block;
+        }
+        .client-strip-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .section-body-wrapper { justify-content: flex-start; margin-bottom: 1.5rem; }
+        .service-list li { flex-direction: column; gap: 0.75rem; padding: 1.5rem 0; }
+        .service-number { width: auto; }
+        .portfolio-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem; }
+        .about-split {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .footer-content { 
+          flex-direction: column-reverse; 
+          gap: 1.2rem; 
+          text-align: center; 
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- Top Sticky Navigation -->
+    <nav>
+      <a href="#" class="nav-brand">
+        <span>Vrihaspati Tiwari</span>
+        <span class="role">/ Corporate & Event Editor</span>
       </a>
 
-      <ul class="nav-menu">
-        <li><a href="#work" class="nav-link">Work</a></li>
-        <li><a href="#showreel" class="nav-link">Showreel</a></li>
-        <li><a href="#services" class="nav-link">Capabilities</a></li>
-        <li><a href="#workflow" class="nav-link">Workflow</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
+      <div class="nav-availability">
+        <span>Available for Commercial, Event & Corporate Projects</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:vrihaspatitiwari@proton.me" class="nav-cta">Contact</a></li>
       </ul>
+    </nav>
 
-      <div style="display: flex; align-items: center; gap: 1.25rem;">
-        <span class="availability-pill">
-          <span class="pulse-dot"></span>
-          Booking Q1/Q2 2026
-        </span>
-        <a href="#contact" class="btn-nav-cta">Let's Talk</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-glow-1"></div>
-      <div class="hero-glow-2"></div>
-
-      <div class="container hero-content">
-        <div class="hero-kicker">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="color: #60a5fa;">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          </svg>
-          Post-Production Specialist for Brands, Agencies & Conferences
-        </div>
-
-        <h1 class="hero-headline">
-          Crafting High-Impact <span class="gradient-text">Corporate & Event Films</span> That Captivate.
-        </h1>
-
-        <p class="hero-subhead">
-          From multi-camera corporate summits, keynote recaps, and energetic aftermovies to polished brand launch films and executive fireside chats. Engineered for emotional resonance, cinematic rhythm, and rapid event delivery.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#work" class="btn-primary">
-            Explore Portfolio
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="#showreel" class="btn-secondary">Watch Showreel</a>
-          <a href="#contact" class="btn-secondary">Request Availability & Rates</a>
-        </div>
-
-        <!-- Metric Highlights -->
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-number">24-48<span>h</span></div>
-            <div class="metric-label">Fast Event Highlights Turnaround</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-number">4K/6K<span>+</span></div>
-            <div class="metric-label">Multicam Proxy & Raw Workflows</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-number">100<span>%</span></div>
-            <div class="metric-label">Broadcast Audio & Color Mastering</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-number">16:9<span>&amp;</span>9:16</div>
-            <div class="metric-label">Cross-Platform Multichannel Delivery</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Centerpiece Showreel Section -->
-    <section id="showreel" class="section-spacing" style="background: var(--bg-secondary);">
+    <section class="hero section-padding">
       <div class="container">
-        <div class="section-header" style="text-align: center;">
-          <span class="section-badge">Featured Showcase</span>
-          <h2 class="section-heading">2026 Corporate &amp; Event Showreel</h2>
-          <p class="section-description" style="margin: 0 auto;">
-            A high-energy compilation showcasing corporate event coverage, annual stakeholder summits, product unveilings, and cinematic storytelling.
+        <span class="section-label">Post-Production</span>
+        <h1 class="section-title">Corporate &amp; Event Video Editor Based in Mumbai, India</h1>
+        
+        <div class="section-body-wrapper">
+          <p class="section-body">
+            I edit commercial launch AVs, keynote presentations, multi-camera event recaps, and brand films — taking picture and sound from rough cut to final master.
           </p>
         </div>
-
-        <div class="spotlight-wrapper">
-          <div class="spotlight-header">
-            <div>
-              <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 700;">Showreel: Kinetic Pacing &amp; Narrative Drive</h3>
-              <p style="color: #94a3b8; font-size: 0.86rem;">Role: Lead Editor &bull; Sound Design &bull; Color Grading &bull; DaVinci Resolve Studio</p>
-            </div>
-            <span class="spotlight-tag">Master 4K 60FPS</span>
-          </div>
-
-          <div class="spotlight-video">
-            <iframe 
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1" 
-              title="Vrihaspati Tiwari Corporate & Event Editing Showreel" 
-              loading="lazy" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
+        
+        <a href="#work" class="btn btn-white">View Selected Work</a>
+        <a href="mailto:vrihaspatitiwari@proton.me" class="btn btn-ghost">Get in Touch</a>
       </div>
     </section>
 
-    <!-- Work Portfolio Section with Interactive Filters -->
-    <section id="work" class="section-spacing">
+    <!-- Selected Work Section -->
+    <section id="work" class="portfolio section-padding">
       <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Selected Portfolio</span>
-          <h2 class="section-heading">Featured Corporate &amp; Event Projects</h2>
-          <p class="section-description">
-            Explore recent corporate films, multi-day conference summaries, product launches, panel discussions, and vertical social cutdowns.
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Corporate &amp; Event Work</h2>
+        
+        <div class="section-body-wrapper">
+          <p class="section-body">
+            Commercial launch AVs, product unveils, and corporate brand documentaries.
           </p>
         </div>
 
         <!-- Filter Bar -->
         <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">
-            All Work <span class="filter-count">7</span>
-          </button>
-          <button class="filter-btn" data-filter="conference">
-            Conferences &amp; Aftermovies <span class="filter-count">2</span>
-          </button>
-          <button class="filter-btn" data-filter="brand">
-            Corporate &amp; Brand Films <span class="filter-count">2</span>
-          </button>
-          <button class="filter-btn" data-filter="product">
-            Product Launches <span class="filter-count">1</span>
-          </button>
-          <button class="filter-btn" data-filter="keynote">
-            Keynotes &amp; Panels <span class="filter-count">1</span>
-          </button>
-          <button class="filter-btn" data-filter="social">
-            Social Cutdowns (9:16) <span class="filter-count">1</span>
-          </button>
+          <button class="filter-btn active" data-filter="all">All Work <span class="filter-count">2</span></button>
+          <button class="filter-btn" data-filter="launch">Launch AVs <span class="filter-count">1</span></button>
+          <button class="filter-btn" data-filter="brand">Brand Films <span class="filter-count">1</span></button>
         </div>
-
-        <!-- Portfolio Cards Grid -->
-        <div class="portfolio-grid" id="portfolio-container">
-          <!-- Card 1: Annual Summit Aftermovie -->
+        
+        <div class="portfolio-grid">
           <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/ScMzIvxBSi4"
-            title="Global Tech Summit — 3-Day Conference Aftermovie"
-            category="conference"
-            client="Apex Horizons Global"
-            role="Lead Editor & Multicam Conforming"
-            softwareTag="DaVinci Resolve"
-            aspectBadge="16:9 4K"
-            logline="Distilled 32 hours of 6-camera keynote, breakout session, and exhibition footage into a high-octane 3-minute recap delivered within 36 hours of event close."
+            title="Asus ExpertBook Launch AV" 
+            softwareTag="Premiere Pro"
+            role="Lead Editor"
+            client="Asus India"
+            logline="Keynote multi-cam edit combined with fast 3D product reveals."
+            aspectBadge="16:9 Widescreen"
+            category="launch"
+            videoUrl="https://www.youtube.com/embed/hLZbPz2AAT8" 
           />
-
-          <!-- Card 2: Corporate Brand Film -->
           <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/L_LUpnjgPso"
-            title="Next-Gen Logistics — Corporate Culture & Mission Film"
+            title="India: A Living Story" 
+            softwareTag="Premiere Pro"
+            role="Lead Editor"
+            client="Corporate Brand Film"
+            logline="Corporate brand documentary cut to a driving musical score."
+            aspectBadge="16:9 Widescreen"
             category="brand"
-            client="Vanguard Global Supply"
-            role="Editor & Sound Design"
-            softwareTag="Premiere Pro"
-            aspectBadge="2.39:1 Anamorphic"
-            logline="A cinematic corporate film highlighting leadership vision, nationwide warehouse automation, and employee stories with clean sound design."
-          />
-
-          <!-- Card 3: Product Reveal Video -->
-          <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/kJQP7kiw5Fk"
-            title="Aura Cloud Platform — Flagship Product Unveil"
-            category="product"
-            client="Aura Systems"
-            role="Video Editor & Motion Graphics"
-            softwareTag="After Effects"
-            aspectBadge="16:9 4K"
-            logline="Fast-paced rhythm, kinetic typography, screen replacements, and pulsing sound effects designed for an energetic stage reveal."
-          />
-
-          <!-- Card 4: Executive Keynote & Panel Discussion -->
-          <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/fJ9rUzIMcZQ"
-            title="AI in Finance — Executive Fireside Chat & Panel"
-            category="keynote"
-            client="FinTech Forum Mumbai"
-            role="Multicam Sync & Dialogue Mastering"
-            softwareTag="Audition & Resolve"
-            aspectBadge="16:9 Full HD"
-            logline="3-camera ISO recording synchronized with lavalier and boom audio; background room rumble eliminated and speaker switching dialed to maintain conversational flow."
-          />
-
-          <!-- Card 5: Leadership Conference Recap -->
-          <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/9bZkp7q19f0"
-            title="Annual Leadership Conclave — Closing Highlights Film"
-            category="conference"
-            client="OmniCorp India"
-            role="On-Site Same-Day Editor"
-            softwareTag="Premiere Pro"
-            aspectBadge="16:9 4K"
-            logline="Cut on-site during a 2-day closed-door leadership summit. Screened live at the gala banquet to conclude the event with standing ovations."
-          />
-
-          <!-- Card 6: Corporate Sustainability Film -->
-          <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/3JZ_D3ELwOQ"
-            title="Clean Horizons — ESG & Sustainability Commitment"
-            category="brand"
-            client="TerraPower Holdings"
-            role="Lead Editor & Colorist"
-            softwareTag="DaVinci Resolve"
-            aspectBadge="16:9 4K"
-            logline="Warm, naturalistic documentary style celebrating solar installations and community outreach initiatives with documentary pacing."
-          />
-
-          <!-- Card 7: Vertical Social Event Teaser (9:16) -->
-          <VideoEmbed 
-            videoUrl="https://www.youtube.com/embed/2Vv-BfVoq4g"
-            title="Summit Moments — 30s Rapid Instagram & LinkedIn Reel"
-            category="social"
-            client="TechInnovate Expo"
-            role="Social Lead Editor"
-            softwareTag="Premiere Pro"
-            aspectBadge="9:16 Vertical"
-            isVertical={true}
-            logline="Vertical 9:16 high-tempo social teaser formatted with kinetic captions, beat-synced jumps, and loud audio mix for maximum mobile engagement."
+            videoUrl="https://www.youtube.com/embed/WDuUT1JyPA4" 
           />
         </div>
       </div>
     </section>
 
-    <!-- Capabilities / Services Section -->
-    <section id="services" class="section-spacing" style="background: var(--bg-secondary);">
+    <!-- Services Section (Cinematic Dark Mode) -->
+    <section id="services" class="services section-padding">
       <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Specialized Services</span>
-          <h2 class="section-heading">Full Post-Production for Corporate &amp; Events</h2>
-          <p class="section-description">
-            Complete editorial workflow engineered for rapid delivery, pristine quality control, and zero client headaches.
+        <span class="section-label">Services</span>
+        <h2 class="section-title">Post-Production Services</h2>
+        
+        <div class="section-body-wrapper">
+          <p class="section-body">
+            End-to-end post-production across Premiere Pro, DaVinci Resolve, and Fusion.
           </p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
-                <line x1="7" y1="2" x2="7" y2="22"/>
-                <line x1="17" y1="2" x2="17" y2="22"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <line x1="2" y1="7" x2="7" y2="7"/>
-                <line x1="2" y1="17" x2="7" y2="17"/>
-                <line x1="17" y1="17" x2="22" y2="17"/>
-                <line x1="17" y1="7" x2="22" y2="7"/>
-              </svg>
+        <ul class="service-list">
+          <li>
+            <span class="service-number">01</span>
+            <div class="service-content">
+              <h3>Picture Editing</h3>
+              <p>Multi-cam cutting, keynote pacing, product reveals, and tight editorial rhythm for commercial AVs and corporate events.</p>
             </div>
-            <h3 class="service-title">Multicam Event Coverage &amp; Aftermovies</h3>
-            <p class="service-text">
-              Expert assembly of multi-camera footage (Sony, RED, ARRI, Blackmagic, Lumix) with timecode and scratch audio sync, cutting keynotes and high-energy aftermovies.
-            </p>
-            <ul class="service-list">
-              <li>Up to 12-camera multicam switching</li>
-              <li>Same-day &amp; 24-48h rush turnarounds</li>
-              <li>Crowd reaction, keynote &amp; sponsor integration</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                <polyline points="2 17 12 22 22 17"/>
-                <polyline points="2 12 12 17 22 12"/>
-              </svg>
+          </li>
+          <li>
+            <span class="service-number">02</span>
+            <div class="service-content">
+              <h3>Sound Design &amp; Clean-up</h3>
+              <p>Sync sound dialogue clean-up, venue noise reduction, speech clarity, soundtrack track-laying, and stereo mixing.</p>
             </div>
-            <h3 class="service-title">Corporate Brand &amp; Culture Films</h3>
-            <p class="service-text">
-              Transforming raw interviews and B-roll into cohesive corporate narratives that communicate company values, client testimonials, and internal milestones.
-            </p>
-            <ul class="service-list">
-              <li>Documentary &amp; narrative structure</li>
-              <li>Executive interview editing &amp; story crafting</li>
-              <li>Brand guidelines &amp; typography compliance</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                <line x1="12" y1="19" x2="12" y2="23"/>
-                <line x1="8" y1="23" x2="16" y2="23"/>
-              </svg>
+          </li>
+          <li>
+            <span class="service-number">03</span>
+            <div class="service-content">
+              <h3>Motion Graphics</h3>
+              <p>Kinetic typography, animated lower-thirds, title reveals, and branded graphics for presentations and launch videos.</p>
             </div>
-            <h3 class="service-title">Broadcast Audio Cleaning &amp; Mixing</h3>
-            <p class="service-text">
-              Event venues are notoriously noisy. I isolate vocals, suppress HVAC rumble, balance levels to EBU R128 / ITU BS.1770 standards, and mix licensed soundtracks.
-            </p>
-            <ul class="service-list">
-              <li>Spectral noise &amp; echo reduction</li>
-              <li>Seamless music editing &amp; auto-ducking</li>
-              <li>Mastered loudness for YouTube, LinkedIn &amp; Web</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                <path d="M2 12h20"/>
-              </svg>
+          </li>
+          <li>
+            <span class="service-number">04</span>
+            <div class="service-content">
+              <h3>Colour Grading &amp; Delivery</h3>
+              <p>Multi-camera shot matching, brand color fidelity, and final master exports in 4K ProRes and web formats.</p>
             </div>
-            <h3 class="service-title">Color Grading &amp; Brand Matching</h3>
-            <p class="service-text">
-              Harmonizing footage across different cameras, lighting conditions, and stages into a consistent, cinematic color palette matching corporate identity.
-            </p>
-            <ul class="service-list">
-              <li>DaVinci Resolve Color Management</li>
-              <li>Skin tone preservation under venue LED lights</li>
-              <li>HDR &amp; Rec.709 color space transforms</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                <line x1="12" y1="18" x2="12.01" y2="18"/>
-              </svg>
-            </div>
-            <h3 class="service-title">Social Cutdowns &amp; Multi-Aspect Ratios</h3>
-            <p class="service-text">
-              Maximize your event ROI with rapid 9:16 vertical reels, 1:1 square teasers, and 16:9 summaries formatted with burned-in animated subtitles for social feeds.
-            </p>
-            <ul class="service-list">
-              <li>Custom kinetic subtitles &amp; captions</li>
-              <li>LinkedIn, Instagram &amp; TikTok ready formats</li>
-              <li>Bite-sized speaker quote clips</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="17 8 12 3 7 8"/>
-                <line x1="12" y1="3" x2="12" y2="15"/>
-              </svg>
-            </div>
-            <h3 class="service-title">Frictionless Cloud Collaboration</h3>
-            <p class="service-text">
-              Review cuts effortlessly with timecoded commenting via Frame.io, Dropbox Replay, or Google Drive, streamlining stakeholder approvals without endless email threads.
-            </p>
-            <ul class="service-list">
-              <li>Timecode-accurate revisions</li>
-              <li>High-speed fiber optic uploads/downloads</li>
-              <li>Archived project libraries for future cutdowns</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4-Step Production Workflow -->
-    <section id="workflow" class="section-spacing">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">How We Work</span>
-          <h2 class="section-heading">Streamlined 4-Step Workflow</h2>
-          <p class="section-description">
-            Predictable, transparent turnaround times designed for high-stakes corporate deadlines.
-          </p>
-        </div>
-
-        <div class="workflow-grid">
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <h3 class="step-title">Ingest &amp; Multicam Sync</h3>
-            <p class="step-desc">Footage backup, folder structuring, multicam timecode/waveform synchronization, and proxy generation for instant review.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <h3 class="step-title">Story Assembly &amp; Rough Cut</h3>
-            <p class="step-desc">Selecting speaker soundbites, pacing narrative arc, curating licensed tracks, and sharing Version 1 via Frame.io.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <h3 class="step-title">Sound, Color &amp; Motion Polish</h3>
-            <p class="step-desc">Incorporating stakeholder feedback, cleaning venue acoustics, adding branded lower-thirds, and color grading the master.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">04</div>
-            <h3 class="step-title">Multi-Format Master Delivery</h3>
-            <p class="step-desc">Exporting ProRes 422 HQ masters, web-optimized MP4s, 9:16 vertical cuts with captions, and project file archival.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Professional Toolset Strip -->
-    <section class="tools-strip">
-      <div class="container">
-        <div class="tools-label">Industry-Standard Post-Production Tech Stack</div>
-        <div class="tools-list">
-          <div class="tool-badge">
-            <span>🎨</span> DaVinci Resolve Studio
-          </div>
-          <div class="tool-badge">
-            <span>🎬</span> Adobe Premiere Pro
-          </div>
-          <div class="tool-badge">
-            <span>⚡</span> Adobe After Effects
-          </div>
-          <div class="tool-badge">
-            <span>🎙️</span> iZotope RX &amp; Audition
-          </div>
-          <div class="tool-badge">
-            <span>☁️</span> Frame.io Review
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-spacing">
+    <section id="about" class="about section-padding">
       <div class="container">
-        <div class="about-wrapper">
-          <div class="about-image-card">
-            <img src="/profile.jpg" alt="Vrihaspati Tiwari - Video Editor" class="about-image" />
-            <div class="about-badge-floating">
-              <strong>Vrihaspati Tiwari</strong> &bull; Mumbai, India &amp; Remote Worldwide
-            </div>
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Behind the Edit</h2>
+        
+        <div class="about-split">
+          <!-- Left Column: Text & Button -->
+          <div class="about-text">
+            <p class="section-body">
+              I'm a video editor based in Mumbai, India, specializing in commercial launch AVs, brand films for corporate clients like Asus India, multi-camera event summaries, and keynote presentations.
+            </p>
+            <p class="section-body">
+              I handle both picture and sound — focusing on tight editorial pacing, clean audio, and story rhythm that resonates with corporate audiences and stakeholders.
+            </p>
+            <a href="mailto:vrihaspatitiwari@proton.me" class="btn btn-blue">Get in Touch</a>
           </div>
 
-          <div class="about-bio">
-            <span class="section-badge">Behind the Edit</span>
-            <h2 class="section-heading" style="margin-bottom: 0.5rem;">Storytelling Driven by Precision Pacing</h2>
-            <p>
-              I am a professional video editor based in Mumbai with years of post-production experience collaborating with corporate brands, event production agencies, enterprise summits, and creative directors across India, the US, and Europe.
-            </p>
-            <p>
-              Events and corporate campaigns move fast. Deadlines cannot slip. My editing style combines <strong>storytelling sensitivity</strong> with <strong>hyper-organized technical discipline</strong> — ensuring high-value footage is transformed into engaging, punchy recaps that keep audiences hooked and stakeholders thrilled.
-            </p>
-            <p>
-              Whether you need an on-site editor turning around same-day conference highlights, a high-touch corporate launch documentary, or weekly social cutdowns, I provide end-to-end post-production with dedicated communication.
-            </p>
-            <div>
-              <a href="#contact" class="btn-primary">Discuss Your Next Event</a>
+          <!-- Right Column: Profile Image -->
+          <div class="about-image-col">
+            <div class="photo-frame">
+              <img 
+                src="/profile.jpg" 
+                alt="Vrihaspati Tiwari" 
+                class="about-image" 
+                width="1200" 
+                height="1599" 
+                loading="lazy" 
+                decoding="async" 
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact / Booking Section -->
-    <section id="contact" class="section-spacing" style="background: var(--bg-secondary);">
+    <!-- Quote Section -->
+    <section class="quote section-padding">
       <div class="container">
-        <div class="contact-card">
-          <div class="contact-grid">
-            <div>
-              <span class="section-badge">Get in Touch</span>
-              <h2 class="section-heading" style="font-size: 2.5rem; margin-bottom: 1rem;">Let's Create Something Memorable</h2>
-              <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7;">
-                Planning an upcoming conference, corporate film, or product launch? Reach out to check calendar availability, request rates, or discuss custom project workflows.
-              </p>
-
-              <div class="contact-info-list">
-                <div class="contact-info-item">
-                  <div class="contact-info-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                      <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Direct Email</div>
-                    <a href="mailto:vrihaspatitiwari@proton.me" style="color: #60a5fa; text-decoration: none; font-weight: 600;">vrihaspatitiwari@proton.me</a>
-                  </div>
-                </div>
-
-                <div class="contact-info-item">
-                  <div class="contact-info-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                      <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Location &amp; Delivery</div>
-                    <span style="color: #cbd5e1; font-weight: 500;">Mumbai, India &bull; Remote Work Worldwide (High-Speed Fiber)</span>
-                  </div>
-                </div>
-
-                <div class="contact-info-item">
-                  <div class="contact-info-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div style="font-size: 0.78rem; color: var(--text-dim); text-transform: uppercase;">Response Time</div>
-                    <span style="color: #cbd5e1; font-weight: 500;">Within 4 Hours (Same-Day Response)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div>
-              <form class="contact-form" action="mailto:vrihaspatitiwari@proton.me" method="GET">
-                <div class="form-group">
-                  <label class="form-label" for="contact-name">Your Name / Agency</label>
-                  <input type="text" id="contact-name" name="subject" class="form-input" placeholder="e.g. Sarah Jenkins / Apex Media" required />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="project-type">Project Type</label>
-                  <select id="project-type" class="form-select">
-                    <option value="conference">Conference / Summit Aftermovie</option>
-                    <option value="corporate-brand">Corporate Brand / Culture Film</option>
-                    <option value="product-launch">Product Launch / Teaser</option>
-                    <option value="keynote">Keynotes &amp; Panel Discussions</option>
-                    <option value="social-reels">Vertical Social Cutdowns (9:16)</option>
-                    <option value="other">Other Commercial Project</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="event-date">Target Event Date / Delivery Timeline</label>
-                  <input type="text" id="event-date" class="form-input" placeholder="e.g. Next month, 48-hr turnaround needed" />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="contact-message">Project Brief &amp; Details</label>
-                  <textarea id="contact-message" name="body" class="form-textarea" placeholder="Tell me about the event scope, footage duration, number of cameras, and delivery requirements..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-primary" style="justify-content: center; width: 100%; border: none; cursor: pointer; padding: 1rem;">
-                  Send Project Inquiry
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                  </svg>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+        <p class="quote-text">
+          “Cut for emotion first, story second, and rhythm third. What people remember is never the mechanics of the cut — it is how it made them feel.”
+        </p>
+        <cite class="quote-author">
+          — Walter Murch, ACE
+          <span class="quote-role">/ Film Editor &amp; Sound Designer (Apocalypse Now, The Godfather Part II)</span>
+        </cite>
       </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <p>&copy; {new Date().getFullYear()} Vrihaspati Tiwari. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; margin-top: 0.25rem; color: var(--text-dim);">Corporate &amp; Event Video Editor &bull; Mumbai &amp; Worldwide</p>
-      </div>
-
-      <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-        <a href="#work" style="color: var(--text-dim); text-decoration: none;">Work</a>
-        <a href="#services" style="color: var(--text-dim); text-decoration: none;">Capabilities</a>
-        <a href="#contact" style="color: var(--text-dim); text-decoration: none;">Contact</a>
+    <!-- Key Clients & Tools Strip -->
+    <div class="client-strip">
+      <div class="container client-strip-inner">
+        <span class="strip-label">Key Clients &amp; Tools</span>
+        <div class="strip-items">
+          <span>Asus India</span>
+          <span class="strip-dot">•</span>
+          <span>Corporate Brand Clients</span>
+          <span class="strip-dot">•</span>
+          <span>DaVinci Resolve Studio</span>
+          <span class="strip-dot">•</span>
+          <span>Blackmagic Fusion</span>
+          <span class="strip-dot">•</span>
+          <span>Adobe Premiere Pro</span>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <!-- Interactive JavaScript for Category Filtering -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-      const cards = document.querySelectorAll<HTMLElement>('.portfolio-card');
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>&copy; 2026 Vrihaspati Tiwari. All rights reserved.</p>
+        <a href="mailto:vrihaspatitiwari@proton.me" class="contact-email">vrihaspatitiwari@proton.me</a>
+      </div>
+    </footer>
 
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
+    <!-- Interactive Client-side Filter Script -->
+    <script>
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('#work .portfolio-card');
 
-          const selectedFilter = button.getAttribute('data-filter');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
 
           cards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-
-            if (selectedFilter === 'all' || cardCategory === selectedFilter) {
-              card.classList.remove('is-hidden');
+            const category = card.getAttribute('data-category') || '';
+            if (filter === 'all' || category === filter) {
+              (card as HTMLElement).style.display = 'flex';
             } else {
-              card.classList.add('is-hidden');
+              (card as HTMLElement).style.display = 'none';
             }
           });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+
+  </body>
 </html>
