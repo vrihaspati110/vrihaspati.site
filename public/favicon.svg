@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="cobaltGradient" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b22e8"/>
+      <stop offset="100%" stop-color="#051494"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background squircle in Royal Cobalt -->
+  <rect width="128" height="128" rx="28" fill="url(#cobaltGradient)"/>
+  
+  <!-- Subtle inner ambient rim light -->
+  <rect x="2" y="2" width="124" height="124" rx="26" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2"/>
+  
+  <!-- VT Monogram -->
+  <text 
+    x="64" 
+    y="87" 
+    fill="#ffffff" 
+    font-family="system-ui, -apple-system, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+    font-size="64" 
+    font-weight="900" 
+    letter-spacing="-2px" 
+    text-anchor="middle">VT</text>
+</svg>
